@@ -5263,3 +5263,165 @@ Diverged: False
 2023-10-15 21:15:52,914 [job_state.py:_handle_started()] - Job state initialized: standby
 2023-10-15 21:15:53,180 [klippy_connection.py:_check_ready()] - Klippy ready
 2023-10-15 21:15:53,666 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-15 21:20:19,679 [app.py:prepare()] - Upload Request Received from 10.0.0.14
+2023-10-15 21:20:19,700 [app.py:post()] - Processing Uploaded File: printer.cfg
+2023-10-15 21:20:19,708 [app.py:log_request()] - 201 POST /server/files/upload (10.0.0.14) [_TRUSTED_USER_] 31.40ms
+2023-10-15 21:20:20,822 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-15 21:20:22,087 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-15 21:20:22,127 [shell_command.py:_check_proc_success()] - Command (systemctl status 22072) successfully finished
+2023-10-15 21:20:22,164 [shell_command.py:_check_proc_success()] - Command (systemctl show -p Requires,After,SupplementaryGroups,EnvironmentFiles,ExecStart,WorkingDirectory,FragmentPath,Description,User klipper.service) successfully finished
+2023-10-15 21:20:26,035 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-15 21:20:26,040 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-15 21:20:26,286 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-15 21:20:26,559 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-15 21:20:27,049 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-15 21:20:27,561 [klippy_connection.py:close()] - Error closing Klippy Unix Socket
+Traceback (most recent call last):
+  File "/home/quadra/moonraker/moonraker/klippy_connection.py", line 704, in close
+    await self.writer.wait_closed()
+  File "/usr/lib/python3.9/asyncio/streams.py", line 359, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "/home/quadra/moonraker/moonraker/klippy_connection.py", line 169, in _read_stream
+    data = await reader.readuntil(b'\x03')
+  File "/usr/lib/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+  File "/usr/lib/python3.9/asyncio/selector_events.py", line 856, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2023-10-15 21:20:27,562 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-15 21:20:27,565 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.objects.subscribe, Code: 503, Message: Klippy Disconnected
+2023-10-15 21:20:27,568 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.objects.subscribe, Code: 503, Message: Klippy Host not connected
+2023-10-15 21:20:27,570 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.objects.subscribe, Code: 503, Message: Klippy Host not connected
+2023-10-15 21:20:28,826 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-15 21:20:28,868 [shell_command.py:_check_proc_success()] - Command (systemctl status 22072) successfully finished
+2023-10-15 21:20:28,904 [shell_command.py:_check_proc_success()] - Command (systemctl show -p Requires,After,SupplementaryGroups,EnvironmentFiles,ExecStart,WorkingDirectory,FragmentPath,Description,User klipper.service) successfully finished
+2023-10-15 21:20:32,720 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-15 21:20:32,722 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-15 21:20:32,971 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-15 21:20:33,237 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-15 21:20:33,735 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-15 21:20:39,016 [websockets.py:on_close()] - Websocket Closed: ID: 281473626024256 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 5.14
+2023-10-15 21:23:10,308 [shell_command.py:_check_proc_success()] - Command (sudo DEBIAN_FRONTEND=noninteractive apt-get update) exited with return code 1
+2023-10-15 21:23:10,308 [base_deploy.py:log_exc()] - Package Manager APT: Error Refreshing System Packages
+Traceback (most recent call last):
+  File "/home/quadra/moonraker/moonraker/components/update_manager/system_deploy.py", line 102, in refresh
+    await self._update_package_cache(force=True)
+  File "/home/quadra/moonraker/moonraker/components/update_manager/system_deploy.py", line 141, in _update_package_cache
+    await self.provider.refresh_packages(notify)
+  File "/home/quadra/moonraker/moonraker/components/update_manager/system_deploy.py", line 182, in refresh_packages
+    await self.cmd_helper.run_cmd(
+  File "/home/quadra/moonraker/moonraker/components/update_manager/update_manager.py", line 591, in run_cmd
+    raise self.server.error("Shell Command Error")
+moonraker.utils.ServerError: Shell Command Error
+2023-10-15 21:23:10,336 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker status --porcelain -b) successfully finished
+2023-10-15 21:23:10,373 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker branch --list --no-color) successfully finished
+2023-10-15 21:23:10,409 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker remote get-url origin) successfully finished
+2023-10-15 21:23:13,189 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker fetch origin --prune --progress) successfully finished
+2023-10-15 21:23:13,209 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-15 21:23:13,228 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker rev-parse HEAD) successfully finished
+2023-10-15 21:23:13,257 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-15 21:23:13,276 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker rev-parse origin/master) successfully finished
+2023-10-15 21:23:13,303 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-15 21:23:13,324 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/moonraker rev-list HEAD..2641fc54d6932445e54d3c2f72a74e46aaf290cf --count) successfully finished
+2023-10-15 21:23:13,325 [git_deploy.py:log_repo_info()] - Git Repo moonraker Detected:
+Owner: Arksine
+Repository Name: moonraker
+Path: /home/quadra/moonraker
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Arksine/moonraker.git
+Recovery URL: https://github.com/Arksine/moonraker.git
+Current Commit SHA: 2641fc54d6932445e54d3c2f72a74e46aaf290cf
+Upstream Commit SHA: 2641fc54d6932445e54d3c2f72a74e46aaf290cf
+Current Version: v0.8.0-186-g2641fc54
+Upstream Version: v0.8.0-186-g2641fc54
+Rollback Commit: 9785387867605ce5962ea76262d840b9121553d4
+Rollback Branch: master
+Rollback Version: v0.8.0-182-g97853878
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+2023-10-15 21:23:13,325 [base_deploy.py:log_info()] - Git Repo moonraker: Channel: dev
+2023-10-15 21:23:13,325 [base_deploy.py:log_info()] - Git Repo moonraker: Validity check for git repo passed
+2023-10-15 21:23:13,409 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper status --porcelain -b) successfully finished
+2023-10-15 21:23:13,448 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper branch --list --no-color) successfully finished
+2023-10-15 21:23:13,484 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper remote get-url origin) successfully finished
+2023-10-15 21:23:15,570 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper fetch origin --prune --progress) successfully finished
+2023-10-15 21:23:15,590 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-15 21:23:15,608 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper rev-parse HEAD) successfully finished
+2023-10-15 21:23:15,762 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-15 21:23:15,781 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper rev-parse origin/master) successfully finished
+2023-10-15 21:23:15,922 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-15 21:23:15,942 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/klipper rev-list HEAD..b1f597c550dc90386f417a2d3b4fc35b4189c902 --count) successfully finished
+2023-10-15 21:23:15,944 [git_deploy.py:log_repo_info()] - Git Repo klipper Detected:
+Owner: Klipper3d
+Repository Name: klipper
+Path: /home/quadra/klipper
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Klipper3d/klipper
+Recovery URL: https://github.com/Klipper3d/klipper
+Current Commit SHA: b1f597c550dc90386f417a2d3b4fc35b4189c902
+Upstream Commit SHA: b1f597c550dc90386f417a2d3b4fc35b4189c902
+Current Version: v0.11.0-299-gb1f597c5
+Upstream Version: v0.11.0-299-gb1f597c5
+Rollback Commit: 5edc7fee7e4560806533ec6ed1550cb5faad12fc
+Rollback Branch: master
+Rollback Version: v0.11.0-297-g5edc7fee
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+2023-10-15 21:23:15,944 [base_deploy.py:log_info()] - Git Repo klipper: Channel: dev
+2023-10-15 21:23:15,944 [base_deploy.py:log_info()] - Git Repo klipper: Validity check for git repo passed
+2023-10-15 21:23:16,363 [web_deploy.py:_log_client_info()] - Web Client mainsail Detected:
+Repo: mainsail-crew/mainsail
+Channel: stable
+Path: /home/quadra/mainsail
+Local Version: v2.8.0
+Remote Version: v2.8.0
+Valid: True
+Fallback Client Detected: False
+Pre-release: False
+Download Url: https://github.com/mainsail-crew/mainsail/releases/download/v2.8.0/mainsail.zip
+Download Size: 2147663
+Content Type: application/zip
+Rollback Version: v2.7.1
+Rollback Repo: mainsail-crew/mainsail
+2023-10-15 21:23:16,390 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest status --porcelain -b) successfully finished
+2023-10-15 21:23:16,427 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest branch --list --no-color) successfully finished
+2023-10-15 21:23:16,466 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest remote get-url origin) successfully finished
+2023-10-15 21:23:17,318 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest fetch origin --prune --progress) successfully finished
+2023-10-15 21:23:17,339 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest merge-base --is-ancestor HEAD origin/master) successfully finished
+2023-10-15 21:23:17,357 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest rev-parse HEAD) successfully finished
+2023-10-15 21:23:17,381 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest describe --always --tags --long --dirty --abbrev=8) successfully finished
+2023-10-15 21:23:17,400 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest rev-parse origin/master) successfully finished
+2023-10-15 21:23:17,423 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest describe origin/master --always --tags --long --abbrev=8) successfully finished
+2023-10-15 21:23:17,443 [shell_command.py:_check_proc_success()] - Command (git -C /home/quadra/crowsnest rev-list HEAD..767c53aaf0aaf3b803e36d5e506230f0e79c8a04 --count) successfully finished
+2023-10-15 21:23:17,444 [git_deploy.py:log_repo_info()] - Git Repo crowsnest Detected:
+Owner: mainsail-crew
+Repository Name: crowsnest
+Path: /home/quadra/crowsnest
+Remote: origin
+Branch: master
+Remote URL: https://github.com/mainsail-crew/crowsnest.git
+Recovery URL: https://github.com/mainsail-crew/crowsnest.git
+Current Commit SHA: 767c53aaf0aaf3b803e36d5e506230f0e79c8a04
+Upstream Commit SHA: 767c53aaf0aaf3b803e36d5e506230f0e79c8a04
+Current Version: v4.0.4-6-g767c53aa
+Upstream Version: v4.0.4-6-g767c53aa
+Rollback Commit: 767c53aaf0aaf3b803e36d5e506230f0e79c8a04
+Rollback Branch: master
+Rollback Version: v4.0.4-6-g767c53aa
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+2023-10-15 21:23:17,445 [base_deploy.py:log_info()] - Git Repo crowsnest: Channel: dev
+2023-10-15 21:23:17,445 [base_deploy.py:log_info()] - Git Repo crowsnest: Validity check for git repo passed
