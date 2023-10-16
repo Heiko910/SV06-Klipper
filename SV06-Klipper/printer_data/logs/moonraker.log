@@ -5657,3 +5657,13 @@ ConnectionResetError: [Errno 104] Connection reset by peer
 2023-10-15 21:36:41,559 [job_state.py:_handle_started()] - Job state initialized: standby
 2023-10-15 21:36:41,837 [klippy_connection.py:_check_ready()] - Klippy ready
 2023-10-15 21:36:42,321 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2023-10-15 21:37:54,432 [klippy_connection.py:wait()] - Request 'gcode/script' pending: 60.00 seconds
+2023-10-15 21:43:41,563 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2023-10-15 21:43:42,828 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2023-10-15 21:43:42,868 [shell_command.py:_check_proc_success()] - Command (systemctl status 24858) successfully finished
+2023-10-15 21:43:42,903 [shell_command.py:_check_proc_success()] - Command (systemctl show -p Requires,After,SupplementaryGroups,EnvironmentFiles,ExecStart,WorkingDirectory,FragmentPath,Description,User klipper.service) successfully finished
+2023-10-15 21:43:46,679 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2023-10-15 21:43:46,682 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2023-10-15 21:43:46,930 [job_state.py:_handle_started()] - Job state initialized: standby
+2023-10-15 21:43:47,196 [klippy_connection.py:_check_ready()] - Klippy ready
+2023-10-15 21:43:47,682 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
